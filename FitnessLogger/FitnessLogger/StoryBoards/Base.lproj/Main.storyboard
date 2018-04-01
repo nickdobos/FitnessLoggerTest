@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zt4-bt-Zci">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="9Oo-6h-OX0">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="Zt4-bt-Zci" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="py6-HE-Ga7">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DrD-jM-D9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-404" y="140"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="agy-pC-1iV">
+            <objects>
+                <viewController storyboardIdentifier="AuthViewController" id="LtA-SA-fhD" customClass="AuthViewController" customModule="FitnessLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wk5-GA-Drr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before you can log an event you need to authorize strava!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="df7-tJ-Yog">
+                                <rect key="frame" x="32" y="267.5" width="311" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iA5-Fy-sjm">
+                                <rect key="frame" x="154.5" y="318.5" width="66" height="30"/>
+                                <color key="backgroundColor" red="0.91192460060119629" green="0.35099244117736816" blue="0.16069525480270386" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Authorize">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="authButtonPressed:" destination="LtA-SA-fhD" eventType="touchUpInside" id="1tV-MX-SEl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iA5-Fy-sjm" firstAttribute="centerX" secondItem="wk5-GA-Drr" secondAttribute="centerX" id="1gA-Jz-wbn"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="df7-tJ-Yog" secondAttribute="trailing" constant="10" id="C9B-NQ-gdf"/>
+                            <constraint firstItem="iA5-Fy-sjm" firstAttribute="centerY" secondItem="wk5-GA-Drr" secondAttribute="centerY" id="MhY-zn-rUY"/>
+                            <constraint firstItem="df7-tJ-Yog" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wk5-GA-Drr" secondAttribute="leading" constant="10" id="NVl-nb-DDE"/>
+                            <constraint firstItem="df7-tJ-Yog" firstAttribute="centerX" secondItem="wk5-GA-Drr" secondAttribute="centerX" id="SBs-fh-dTf"/>
+                            <constraint firstItem="iA5-Fy-sjm" firstAttribute="top" secondItem="df7-tJ-Yog" secondAttribute="bottom" constant="10" id="Vjm-yC-Sei"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3ui-63-p6z"/>
+                    </view>
+                    <connections>
+                        <outlet property="textLabel" destination="df7-tJ-Yog" id="gQA-JA-m6C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JtA-ri-NqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="140"/>
+        </scene>
+    </scenes>
+</document>

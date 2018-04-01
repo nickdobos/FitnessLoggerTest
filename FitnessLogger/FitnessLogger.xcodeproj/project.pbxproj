@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		01346889207131740015D52C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01346888207131740015D52C /* AppDelegate.swift */; };
-		0134688B207131740015D52C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134688A207131740015D52C /* ViewController.swift */; };
 		0134688E207131740015D52C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0134688C207131740015D52C /* Main.storyboard */; };
 		01346891207131740015D52C /* FitnessLogger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0134688F207131740015D52C /* FitnessLogger.xcdatamodeld */; };
 		01346893207131750015D52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01346892207131750015D52C /* Assets.xcassets */; };
 		01346896207131750015D52C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01346894207131750015D52C /* LaunchScreen.storyboard */; };
 		013468A1207131750015D52C /* FitnessLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013468A0207131750015D52C /* FitnessLoggerTests.swift */; };
 		013468AC207131750015D52C /* FitnessLoggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013468AB207131750015D52C /* FitnessLoggerUITests.swift */; };
+		013468BA207133040015D52C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013468B9207133040015D52C /* Coordinator.swift */; };
+		013477C5207135B60005CFB7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013477C4207135B60005CFB7 /* AppCoordinator.swift */; };
+		013477C820713BD10005CFB7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013477C720713BD10005CFB7 /* AuthViewController.swift */; };
+		015D8B6220713FD6007449D6 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D8B6120713FD6007449D6 /* AuthManager.swift */; };
+		01D97B9520713490009E40F5 /* UIViewController+FitnessLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D97B9420713490009E40F5 /* UIViewController+FitnessLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 /* Begin PBXFileReference section */
 		01346885207131740015D52C /* FitnessLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01346888207131740015D52C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0134688A207131740015D52C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0134688D207131740015D52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01346890207131740015D52C /* FitnessLogger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitnessLogger.xcdatamodel; sourceTree = "<group>"; };
 		01346892207131750015D52C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		013468A7207131750015D52C /* FitnessLoggerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessLoggerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		013468AB207131750015D52C /* FitnessLoggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessLoggerUITests.swift; sourceTree = "<group>"; };
 		013468AD207131750015D52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		013468B9207133040015D52C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		013477C4207135B60005CFB7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		013477C720713BD10005CFB7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		015D8B6120713FD6007449D6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		01D97B9420713490009E40F5 /* UIViewController+FitnessLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+FitnessLogger.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				01346888207131740015D52C /* AppDelegate.swift */,
-				0134688A207131740015D52C /* ViewController.swift */,
-				0134688C207131740015D52C /* Main.storyboard */,
+				013477C4207135B60005CFB7 /* AppCoordinator.swift */,
+				015D8B63207140BC007449D6 /* Auth */,
+				013468BC2071334C0015D52C /* StoryBoards */,
+				013468BB2071331A0015D52C /* Architecture */,
 				01346892207131750015D52C /* Assets.xcassets */,
-				01346894207131750015D52C /* LaunchScreen.storyboard */,
 				01346897207131750015D52C /* Info.plist */,
 				0134688F207131740015D52C /* FitnessLogger.xcdatamodeld */,
 			);
@@ -126,6 +135,33 @@
 				013468AD207131750015D52C /* Info.plist */,
 			);
 			path = FitnessLoggerUITests;
+			sourceTree = "<group>";
+		};
+		013468BB2071331A0015D52C /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				013468B9207133040015D52C /* Coordinator.swift */,
+				01D97B9420713490009E40F5 /* UIViewController+FitnessLogger.swift */,
+			);
+			path = Architecture;
+			sourceTree = "<group>";
+		};
+		013468BC2071334C0015D52C /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				0134688C207131740015D52C /* Main.storyboard */,
+				01346894207131750015D52C /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		015D8B63207140BC007449D6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				013477C720713BD10005CFB7 /* AuthViewController.swift */,
+				015D8B6120713FD6007449D6 /* AuthManager.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +232,11 @@
 				TargetAttributes = {
 					01346884207131740015D52C = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					0134689B207131750015D52C = {
 						CreatedOnToolsVersion = 9.3;
@@ -259,8 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013468BA207133040015D52C /* Coordinator.swift in Sources */,
+				015D8B6220713FD6007449D6 /* AuthManager.swift in Sources */,
 				01346891207131740015D52C /* FitnessLogger.xcdatamodeld in Sources */,
-				0134688B207131740015D52C /* ViewController.swift in Sources */,
+				013477C5207135B60005CFB7 /* AppCoordinator.swift in Sources */,
+				01D97B9520713490009E40F5 /* UIViewController+FitnessLogger.swift in Sources */,
+				013477C820713BD10005CFB7 /* AuthViewController.swift in Sources */,
 				01346889207131740015D52C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,13 +480,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3U8C4E4UX7;
+				DEVELOPMENT_TEAM = C9J4EN2GH9;
 				INFOPLIST_FILE = FitnessLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TestOrg.FitnessLogger;
+				PRODUCT_BUNDLE_IDENTIFIER = Dobos.FitnessLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -453,13 +498,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3U8C4E4UX7;
+				DEVELOPMENT_TEAM = C9J4EN2GH9;
 				INFOPLIST_FILE = FitnessLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TestOrg.FitnessLogger;
+				PRODUCT_BUNDLE_IDENTIFIER = Dobos.FitnessLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
