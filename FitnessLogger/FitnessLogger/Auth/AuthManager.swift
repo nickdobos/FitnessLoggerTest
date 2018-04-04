@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AuthManagerDelegate: class {
+    func didAuthorize()
+}
+
 final class AuthManager {
 
     struct k {
@@ -15,9 +19,21 @@ final class AuthManager {
         static let clientSecret = "42539bc9d42e4e010b271068eac7f577fb5206ba"
         static let accessToken = "70e503a654438ce02ea4a06b6714ad579be5b8d0"
         static let redirectURI = "FitnessLogger://auth"
+        static let accessTokenUserDefaultKey = "access_token"
     }
 
     var needsAuth = true
+    weak var delegate: AuthManagerDelegate? = nil
+
+    var accessToken: String? {
+        // This should be done in a keychain for security purpose, but I'm doing it with NSUserDefaults due to time constraints, and since it is common to use a third party library on iOS to manage keychain access since the API is so weird.
+        set {
+            UserDefaults.standard.set(newValue, forKey: k.accessTokenUserDefaultKey)
+        }
+        get {
+            return UserDefaults.standard.string(forKey: k.accessTokenUserDefaultKey)
+        }
+    }
 
     func sendAuthorizationRequest() {
         var components = URLComponents(string: "https://www.strava.com/oauth/authorize")
@@ -59,8 +75,19 @@ final class AuthManager {
         var request = URLRequest(url: fullURL)
         request.httpMethod = "POST"
 
-        URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
-            // TODO: Handle this response
+        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, urlResponse, error) in
+            guard let responseData = data,
+                error == nil,
+                let json = try? JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
+                let token = json?["access_token"] as? String else {
+                    // handle error here
+                    return
+            }
+
+            self?.accessToken = token
+            self?.delegate?.didAuthorize()
         }
+
+        task.resume()
     }
 }

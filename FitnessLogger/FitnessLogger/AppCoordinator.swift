@@ -26,7 +26,7 @@ final class AppCoordinator: Coordinator {
         if authManager.needsAuth {
             showAuth()
         } else {
-            showLogger()
+            showActivites()
         }
     }
 
@@ -34,12 +34,20 @@ final class AppCoordinator: Coordinator {
 
     private func showAuth() {
         let auth = AuthViewController.instantiateFromStoryboard() as! AuthViewController
-        auth.setupWith(authManager: AuthManager())
+        let authManager = AuthManager()
+        authManager.delegate = self
+        auth.setupWith(authManager:  authManager)
 
         rootNavigationController.setViewControllers([auth], animated: true)
     }
 
-    private func showLogger() {
+    private func showActivites() {
 
+    }
+}
+
+extension AppCoordinator: AuthManagerDelegate {
+    func didAuthorize() {
+        showActivites()
     }
 }
