@@ -25,9 +25,7 @@ class Coordinator: NSObject {
     var childCoordinators: [Coordinator] = []
 
     func start() {
-        if let parent = parentCoordinator {
-            parentCoordinator?.childCoordinators.append(self)
-        }
+        parentCoordinator?.childCoordinators.append(self)
     }
 
     func coordinatorDidFinish(_ coordinator: Coordinator) {
