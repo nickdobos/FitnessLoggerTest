@@ -47,8 +47,9 @@ final class ActivityCoordinator: Coordinator {
         rootNavigationController.pushViewController(createViewController, animated: true)
     }
 
-    private func showDetailView(for activity:ActivityModel) {
-        let detailViewController = ActivityDetailViewController.instantiateFromStoryboard()
+    private func showDetailView(for activity: ActivityModel) {
+        let detailViewController = ActivityDetailViewController.instantiateFromStoryboard() as! ActivityDetailViewController
+        detailViewController.configure(with: activity)
 
         rootNavigationController.pushViewController(detailViewController, animated: true)
     }
