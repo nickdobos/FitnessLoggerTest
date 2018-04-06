@@ -18,7 +18,14 @@
 		013477C5207135B60005CFB7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013477C4207135B60005CFB7 /* AppCoordinator.swift */; };
 		013477C820713BD10005CFB7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013477C720713BD10005CFB7 /* AuthViewController.swift */; };
 		015D8B6220713FD6007449D6 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D8B6120713FD6007449D6 /* AuthManager.swift */; };
+		016F171B2074579200444114 /* AthleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F171A2074579200444114 /* AthleteModel.swift */; };
+		016F1721207464F200444114 /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F1720207464F200444114 /* ActivityListViewController.swift */; };
+		016F17232074650600444114 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F17222074650600444114 /* ActivityCoordinator.swift */; };
+		016F17252074651600444114 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F17242074651600444114 /* ActivityDetailViewController.swift */; };
+		016F17272074653800444114 /* ActivityCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F17262074653800444114 /* ActivityCreatorViewController.swift */; };
+		016F172B2074687000444114 /* ActivityDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F172A2074687000444114 /* ActivityDataController.swift */; };
 		01D97B9520713490009E40F5 /* UIViewController+FitnessLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D97B9420713490009E40F5 /* UIViewController+FitnessLogger.swift */; };
+		01F071C820747CC000DFBCA9 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F071C720747CC000DFBCA9 /* ActivityModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +63,14 @@
 		013477C4207135B60005CFB7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		013477C720713BD10005CFB7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		015D8B6120713FD6007449D6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		016F171A2074579200444114 /* AthleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteModel.swift; sourceTree = "<group>"; };
+		016F1720207464F200444114 /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
+		016F17222074650600444114 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
+		016F17242074651600444114 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
+		016F17262074653800444114 /* ActivityCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCreatorViewController.swift; sourceTree = "<group>"; };
+		016F172A2074687000444114 /* ActivityDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataController.swift; sourceTree = "<group>"; };
 		01D97B9420713490009E40F5 /* UIViewController+FitnessLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+FitnessLogger.swift"; sourceTree = "<group>"; };
+		01F071C720747CC000DFBCA9 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +124,10 @@
 				01346888207131740015D52C /* AppDelegate.swift */,
 				013477C4207135B60005CFB7 /* AppCoordinator.swift */,
 				015D8B63207140BC007449D6 /* Auth */,
+				016F17282074654300444114 /* Activities */,
+				016F171C2074584D00444114 /* Models */,
 				013468BC2071334C0015D52C /* StoryBoards */,
-				013468BB2071331A0015D52C /* Architecture */,
+				013468BB2071331A0015D52C /* Architecture & Supporting Classes */,
 				01346892207131750015D52C /* Assets.xcassets */,
 				01346897207131750015D52C /* Info.plist */,
 				0134688F207131740015D52C /* FitnessLogger.xcdatamodeld */,
@@ -137,13 +153,13 @@
 			path = FitnessLoggerUITests;
 			sourceTree = "<group>";
 		};
-		013468BB2071331A0015D52C /* Architecture */ = {
+		013468BB2071331A0015D52C /* Architecture & Supporting Classes */ = {
 			isa = PBXGroup;
 			children = (
 				013468B9207133040015D52C /* Coordinator.swift */,
 				01D97B9420713490009E40F5 /* UIViewController+FitnessLogger.swift */,
 			);
-			path = Architecture;
+			path = "Architecture & Supporting Classes";
 			sourceTree = "<group>";
 		};
 		013468BC2071334C0015D52C /* StoryBoards */ = {
@@ -162,6 +178,35 @@
 				015D8B6120713FD6007449D6 /* AuthManager.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		016F171C2074584D00444114 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				016F171A2074579200444114 /* AthleteModel.swift */,
+				01F071C720747CC000DFBCA9 /* ActivityModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		016F17282074654300444114 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				016F17222074650600444114 /* ActivityCoordinator.swift */,
+				016F172A2074687000444114 /* ActivityDataController.swift */,
+				016F17292074685E00444114 /* Views */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		016F17292074685E00444114 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				016F1720207464F200444114 /* ActivityListViewController.swift */,
+				016F17242074651600444114 /* ActivityDetailViewController.swift */,
+				016F17262074653800444114 /* ActivityCreatorViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,13 +345,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016F17252074651600444114 /* ActivityDetailViewController.swift in Sources */,
 				013468BA207133040015D52C /* Coordinator.swift in Sources */,
+				01F071C820747CC000DFBCA9 /* ActivityModel.swift in Sources */,
+				016F172B2074687000444114 /* ActivityDataController.swift in Sources */,
+				016F17272074653800444114 /* ActivityCreatorViewController.swift in Sources */,
 				015D8B6220713FD6007449D6 /* AuthManager.swift in Sources */,
 				01346891207131740015D52C /* FitnessLogger.xcdatamodeld in Sources */,
 				013477C5207135B60005CFB7 /* AppCoordinator.swift in Sources */,
 				01D97B9520713490009E40F5 /* UIViewController+FitnessLogger.swift in Sources */,
 				013477C820713BD10005CFB7 /* AuthViewController.swift in Sources */,
+				016F1721207464F200444114 /* ActivityListViewController.swift in Sources */,
 				01346889207131740015D52C /* AppDelegate.swift in Sources */,
+				016F171B2074579200444114 /* AthleteModel.swift in Sources */,
+				016F17232074650600444114 /* ActivityCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

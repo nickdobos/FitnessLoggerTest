@@ -8,11 +8,20 @@
 
 import UIKit
 
+protocol AuthViewControllerDelegate: class {
+    func didAuthorize()
+}
+
 final class AuthViewController: UIViewController {
+
+    // MARK: - AuthViewController
 
     func setupWith(authManager: AuthManager) {
         manager = authManager
+        manager.delegate = self
     }
+
+    weak var delegate: AuthViewControllerDelegate? = nil
 
     private var manager: AuthManager!
 
@@ -25,11 +34,25 @@ final class AuthViewController: UIViewController {
         textLabel.textColor = UIColor.red
     }
 
-    @IBOutlet weak var textLabel: UILabel!
+    // MARK: - Outlets
 
-    // MARK: Actions
+    @IBOutlet weak var authorizeButton: UIButton!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+
+    // MARK: - Actions
 
     @IBAction func authButtonPressed(_ sender: Any) {
         sendAuthorizationRequest()
+        authorizeButton.isHidden = true
+
+        loadingIndicator.isHidden = false
+        loadingIndicator.startAnimating()
+    }
+}
+
+extension AuthViewController: AuthManagerDelegate {
+    func didAuthorize() {
+        delegate?.didAuthorize()
     }
 }

@@ -30,6 +30,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="du7-9N-IY0">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.91192460060000002" green="0.3509924412" blue="0.16069525479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before you can log an event you need to authorize strava!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="df7-tJ-Yog">
                                 <rect key="frame" x="32" y="267.5" width="311" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -50,21 +54,139 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iA5-Fy-sjm" firstAttribute="centerX" secondItem="wk5-GA-Drr" secondAttribute="centerX" id="1gA-Jz-wbn"/>
+                            <constraint firstItem="du7-9N-IY0" firstAttribute="centerX" secondItem="wk5-GA-Drr" secondAttribute="centerX" id="8RR-DW-Ec4"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="df7-tJ-Yog" secondAttribute="trailing" constant="10" id="C9B-NQ-gdf"/>
                             <constraint firstItem="iA5-Fy-sjm" firstAttribute="centerY" secondItem="wk5-GA-Drr" secondAttribute="centerY" id="MhY-zn-rUY"/>
                             <constraint firstItem="df7-tJ-Yog" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wk5-GA-Drr" secondAttribute="leading" constant="10" id="NVl-nb-DDE"/>
                             <constraint firstItem="df7-tJ-Yog" firstAttribute="centerX" secondItem="wk5-GA-Drr" secondAttribute="centerX" id="SBs-fh-dTf"/>
                             <constraint firstItem="iA5-Fy-sjm" firstAttribute="top" secondItem="df7-tJ-Yog" secondAttribute="bottom" constant="10" id="Vjm-yC-Sei"/>
+                            <constraint firstItem="du7-9N-IY0" firstAttribute="centerY" secondItem="wk5-GA-Drr" secondAttribute="centerY" id="tLm-8z-z6O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3ui-63-p6z"/>
                     </view>
                     <connections>
+                        <outlet property="authorizeButton" destination="iA5-Fy-sjm" id="HhE-uY-Jch"/>
+                        <outlet property="loadingIndicator" destination="du7-9N-IY0" id="8fC-k9-KsO"/>
                         <outlet property="textLabel" destination="df7-tJ-Yog" id="gQA-JA-m6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtA-ri-NqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="377" y="140"/>
+        </scene>
+        <!--Activity List View Controller-->
+        <scene sceneID="OoC-RE-Csz">
+            <objects>
+                <viewController storyboardIdentifier="ActivityListViewController" id="wjd-fr-2Ja" customClass="ActivityListViewController" customModule="FitnessLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ezz-VX-ycg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Activities" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stD-2k-pae">
+                                <rect key="frame" x="120" y="278.5" width="135" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7SD-MC-WkH">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.91192460060000002" green="0.3509924412" blue="0.16069525479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSh-QF-qIK">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ActivityCell" textLabel="blT-ST-V5C" style="IBUITableViewCellStyleDefault" id="FsW-IM-yA9">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FsW-IM-yA9" id="YEX-gG-6Ot">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="blT-ST-V5C">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wjd-fr-2Ja" id="98g-aq-LQO"/>
+                                    <outlet property="delegate" destination="wjd-fr-2Ja" id="mY5-k4-24Q"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKa-g4-0Eu">
+                                <rect key="frame" x="8" y="617" width="359" height="30"/>
+                                <color key="backgroundColor" red="0.91192460060000002" green="0.3509924412" blue="0.16069525479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Add Activity!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addActivityButtonPressed:" destination="wjd-fr-2Ja" eventType="touchUpInside" id="1rs-lL-WSj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="stD-2k-pae" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ezz-VX-ycg" secondAttribute="leading" constant="8" id="2ej-e7-JZU"/>
+                            <constraint firstItem="8LY-eT-HAf" firstAttribute="bottom" secondItem="fKa-g4-0Eu" secondAttribute="bottom" constant="20" id="8Px-RW-Dyk"/>
+                            <constraint firstItem="7SD-MC-WkH" firstAttribute="centerY" secondItem="Ezz-VX-ycg" secondAttribute="centerY" id="D0t-AV-ie4"/>
+                            <constraint firstItem="7SD-MC-WkH" firstAttribute="centerX" secondItem="Ezz-VX-ycg" secondAttribute="centerX" id="DTI-M7-642"/>
+                            <constraint firstItem="fSh-QF-qIK" firstAttribute="top" secondItem="8LY-eT-HAf" secondAttribute="top" id="HkB-fg-fGF"/>
+                            <constraint firstAttribute="bottom" secondItem="fSh-QF-qIK" secondAttribute="bottom" id="OcB-8N-HjH"/>
+                            <constraint firstItem="fSh-QF-qIK" firstAttribute="leading" secondItem="Ezz-VX-ycg" secondAttribute="leading" id="ci4-b9-Cka"/>
+                            <constraint firstAttribute="trailing" secondItem="fSh-QF-qIK" secondAttribute="trailing" id="etF-Ch-mDF"/>
+                            <constraint firstItem="stD-2k-pae" firstAttribute="centerX" secondItem="Ezz-VX-ycg" secondAttribute="centerX" id="fAz-tG-gJI"/>
+                            <constraint firstItem="7SD-MC-WkH" firstAttribute="top" secondItem="stD-2k-pae" secondAttribute="bottom" constant="16" id="fg9-YV-BOZ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="stD-2k-pae" secondAttribute="trailing" constant="8" id="hjj-gb-49R"/>
+                            <constraint firstItem="fKa-g4-0Eu" firstAttribute="leading" secondItem="8LY-eT-HAf" secondAttribute="leading" constant="8" id="kax-m4-b7K"/>
+                            <constraint firstItem="8LY-eT-HAf" firstAttribute="trailing" secondItem="fKa-g4-0Eu" secondAttribute="trailing" constant="8" id="tmp-2Z-eCe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8LY-eT-HAf"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="7SD-MC-WkH" id="dzI-pp-d16"/>
+                        <outlet property="loadingLabel" destination="stD-2k-pae" id="mya-DG-KIi"/>
+                        <outlet property="tableView" destination="fSh-QF-qIK" id="Tnm-Hc-Bb1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bX7-NX-5At" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="832"/>
+        </scene>
+        <!--Activity Create View Controller-->
+        <scene sceneID="nUN-sJ-y5e">
+            <objects>
+                <viewController storyboardIdentifier="ActivityCreateViewController" id="9fo-5n-ZZs" customClass="ActivityCreateViewController" customModule="FitnessLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vee-co-tSq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5w0-6R-VOd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yj2-g1-5A0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092" y="832"/>
+        </scene>
+        <!--Activity Detail View Controller-->
+        <scene sceneID="iot-X8-1Xb">
+            <objects>
+                <viewController id="HeV-5b-9gj" customClass="ActivityDetailViewController" customModule="FitnessLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="soR-8N-kib">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="DIA-nH-nuq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A4N-UK-1lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830" y="832"/>
         </scene>
     </scenes>
 </document>

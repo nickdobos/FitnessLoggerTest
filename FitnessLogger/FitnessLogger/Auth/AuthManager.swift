@@ -22,7 +22,6 @@ final class AuthManager {
         static let accessTokenUserDefaultKey = "access_token"
     }
 
-    var needsAuth = true
     weak var delegate: AuthManagerDelegate? = nil
 
     var accessToken: String? {

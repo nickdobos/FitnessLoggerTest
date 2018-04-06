@@ -13,8 +13,8 @@ import UIKit
 class Coordinator: NSObject {
     // MARK: - Lifecycle
 
-    init(rootViewController: UINavigationController, parent: Coordinator?) {
-        self.rootNavigationController = rootViewController
+    init(rootNavigationController: UINavigationController, parent: Coordinator?) {
+        self.rootNavigationController = rootNavigationController
         self.parentCoordinator = parent
     }
 
@@ -22,11 +22,12 @@ class Coordinator: NSObject {
 
     let rootNavigationController: UINavigationController
     weak var parentCoordinator: Coordinator? = nil
-
-    private var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
 
     func start() {
-        // Empty Superclass method
+        if let parent = parentCoordinator {
+            parentCoordinator?.childCoordinators.append(self)
+        }
     }
 
     func coordinatorDidFinish(_ coordinator: Coordinator) {
