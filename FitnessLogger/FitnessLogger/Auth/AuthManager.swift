@@ -49,7 +49,7 @@ final class AuthManager {
 
     func handleTokenCallback(withURL url: URL) {
         guard let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems else {
-            // handle gerneic error
+            // TODO: handle generic error
 
             return
         }
@@ -59,7 +59,7 @@ final class AuthManager {
         } else if let errorQuery = queryItems.first(where: { $0.name == "error" }), errorQuery.value == "access denied" {
             // TODO: Handle bad access error
         } else {
-            // handle some generic error
+            // TODO: handle some generic error
         }
     }
 
@@ -85,7 +85,10 @@ final class AuthManager {
             }
 
             self?.accessToken = token
-            self?.delegate?.didAuthorize()
+
+            DispatchQueue.main.async {
+                self?.delegate?.didAuthorize()
+            }
         }
 
         task.resume()

@@ -32,21 +32,15 @@ final class ActivityListViewController: UIViewController {
     func fetchActivities() {
         dataController.fetchActivities { [weak self] (activities, error) in
             guard error == nil else {
-                DispatchQueue.main.async {
-                    self?.loadingLabel.text = NSLocalizedString("Something went wrong", comment: "oops")
-                    self?.activityIndicator.stopAnimating()
-
-                }
+                self?.loadingLabel.text = NSLocalizedString("Something went wrong", comment: "oops")
+                self?.activityIndicator.stopAnimating()
 
                 return
             }
 
             self?.dataSource = activities
-
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                self?.tableView.isHidden = false
-            }
+            self?.tableView.reloadData()
+            self?.tableView.isHidden = false
         }
     }
 
