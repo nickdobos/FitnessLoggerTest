@@ -29,9 +29,12 @@ final class ActivityDataController {
         request.httpMethod = "GET"
 
         let task = URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+
             guard let responseData = data,
                 error == nil,
-                let activities = try? JSONDecoder().decode([ActivityModel].self, from: responseData) else {
+                let activities = try? decoder.decode([ActivityModel].self, from: responseData) else {
                     completion([], error)
 
                     return

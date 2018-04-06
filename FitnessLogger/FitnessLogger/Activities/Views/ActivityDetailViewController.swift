@@ -41,6 +41,10 @@ final class ActivityDetailViewController: UIViewController {
         nameLabel.text = activityModel.name
         distanceLabel.text = activityModel.distance == 0.0 ? NSLocalizedString("Really far trust me", comment: "I'm a great athelete") : "\(activityModel.distance)"
         typeLabel.text = activityModel.type
+
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        dateLabel.text = formatter.string(from: activityModel.date)
     }
 
     // MARK: - Outlets
@@ -48,4 +52,5 @@ final class ActivityDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 }

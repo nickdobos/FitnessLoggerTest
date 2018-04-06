@@ -12,4 +12,12 @@ struct ActivityModel: Codable {
     let name: String
     let distance: Double
     let type: String
+    let date: Date
+
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case distance = "distance"
+        case type = "type"
+        case date = "start_date_local"
+    }
 }

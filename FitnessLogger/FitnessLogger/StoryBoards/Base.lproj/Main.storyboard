@@ -182,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u9M-Ng-JRI">
-                                <rect key="frame" x="0.0" y="20" width="375" height="163"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="220"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYt-AU-Sfl">
                                         <rect key="frame" x="157" y="0.0" width="61.5" height="20.5"/>
@@ -220,6 +220,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4k-te-HYL">
+                                        <rect key="frame" x="167" y="171" width="41" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbb-Tp-SbI">
+                                        <rect key="frame" x="166.5" y="199.5" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -233,6 +245,7 @@
                         <viewLayoutGuide key="safeArea" id="DIA-nH-nuq"/>
                     </view>
                     <connections>
+                        <outlet property="dateLabel" destination="sbb-Tp-SbI" id="yFr-bK-C1p"/>
                         <outlet property="distanceLabel" destination="xHT-AJ-EET" id="gev-Cb-zAC"/>
                         <outlet property="nameLabel" destination="kEv-jp-eB4" id="X4E-LU-mip"/>
                         <outlet property="typeLabel" destination="snq-jy-xqn" id="rCk-lU-RQx"/>
