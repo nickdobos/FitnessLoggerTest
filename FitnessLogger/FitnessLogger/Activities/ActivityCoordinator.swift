@@ -16,6 +16,9 @@ final class ActivityCoordinator: Coordinator {
     init(rootNavigationController rootViewController: UINavigationController, parent: Coordinator?, authManager: AuthManager) {
         self.authManager = authManager
 
+        // Token is presumed to exist before reaching this coordinator
+        dataController = ActivityDataController(token: authManager.accessToken!)
+
         super.init(rootNavigationController: rootViewController, parent: parent)
     }
 
@@ -30,19 +33,20 @@ final class ActivityCoordinator: Coordinator {
     // MARK: - Activity Coordinator
 
     let authManager: AuthManager
+    let dataController: ActivityDataController
 
     private func showListView() {
         let listViewController = ActivityListViewController.instantiateFromStoryboard() as! ActivityListViewController
         listViewController.delegate = self
-
-        // Token is presumed to exist before reaching this coordinator
-        listViewController.dataController = ActivityDataController(token: authManager.accessToken!)
+        listViewController.dataController = dataController
 
         rootNavigationController.pushViewController(listViewController, animated: true)
     }
 
     private func showCreateView() {
-        let createViewController = ActivityCreateViewController.instantiateFromStoryboard()
+        let createViewController = ActivityCreateViewController.instantiateFromStoryboard() as! ActivityCreateViewController
+        createViewController.delegate = self
+        createViewController.dataController = dataController
 
         rootNavigationController.pushViewController(createViewController, animated: true)
     }
@@ -62,5 +66,11 @@ extension ActivityCoordinator: ActivityListViewControllerDelegate {
 
     func didPressAddActivityButton() {
         showCreateView()
+    }
+}
+
+extension ActivityCoordinator: ActivityCreateViewControllerDelegate {
+    func createdNewActivity() {
+        rootNavigationController.popViewController(animated: true)
     }
 }

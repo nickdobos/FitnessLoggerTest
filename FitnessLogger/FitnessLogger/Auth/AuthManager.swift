@@ -38,7 +38,8 @@ final class AuthManager {
         var components = URLComponents(string: "https://www.strava.com/oauth/authorize")
         let queryComponents = [URLQueryItem(name: "client_id", value: k.clientID),
                                URLQueryItem(name: "redirect_uri", value: k.redirectURI),
-                               URLQueryItem(name: "response_type", value: "code")]
+                               URLQueryItem(name: "response_type", value: "code"),
+                               URLQueryItem(name: "scope", value: "view_private,write")]
         components?.queryItems = queryComponents
 
         guard let fullURL = components?.url else { return; }

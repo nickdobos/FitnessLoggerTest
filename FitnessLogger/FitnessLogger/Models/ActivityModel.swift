@@ -11,12 +11,14 @@ import Foundation
 struct ActivityModel: Codable {
     let name: String
     let distance: Double
+    let time: Int
     let type: String
     let date: Date
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case distance = "distance"
+        case time = "elapsed_time"
         case type = "type"
         case date = "start_date_local"
     }
