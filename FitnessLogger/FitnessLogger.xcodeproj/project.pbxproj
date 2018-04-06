@@ -18,7 +18,6 @@
 		013477C5207135B60005CFB7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013477C4207135B60005CFB7 /* AppCoordinator.swift */; };
 		013477C820713BD10005CFB7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013477C720713BD10005CFB7 /* AuthViewController.swift */; };
 		015D8B6220713FD6007449D6 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D8B6120713FD6007449D6 /* AuthManager.swift */; };
-		016F171B2074579200444114 /* AthleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F171A2074579200444114 /* AthleteModel.swift */; };
 		016F1721207464F200444114 /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F1720207464F200444114 /* ActivityListViewController.swift */; };
 		016F17232074650600444114 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F17222074650600444114 /* ActivityCoordinator.swift */; };
 		016F17252074651600444114 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016F17242074651600444114 /* ActivityDetailViewController.swift */; };
@@ -63,7 +62,6 @@
 		013477C4207135B60005CFB7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		013477C720713BD10005CFB7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		015D8B6120713FD6007449D6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		016F171A2074579200444114 /* AthleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteModel.swift; sourceTree = "<group>"; };
 		016F1720207464F200444114 /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
 		016F17222074650600444114 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
 		016F17242074651600444114 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		016F171C2074584D00444114 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				016F171A2074579200444114 /* AthleteModel.swift */,
 				01F071C720747CC000DFBCA9 /* ActivityModel.swift */,
 			);
 			path = Models;
@@ -357,7 +354,6 @@
 				013477C820713BD10005CFB7 /* AuthViewController.swift in Sources */,
 				016F1721207464F200444114 /* ActivityListViewController.swift in Sources */,
 				01346889207131740015D52C /* AppDelegate.swift in Sources */,
-				016F171B2074579200444114 /* AthleteModel.swift in Sources */,
 				016F17232074650600444114 /* ActivityCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
