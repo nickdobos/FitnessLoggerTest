@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = appCoordinator?.rootNavigationController
 
-        // Test Test
-
         return true
     }
 
