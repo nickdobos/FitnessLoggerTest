@@ -1,4 +1,4 @@
-//
+
 //  ActivityListViewController.swift
 //  FitnessLogger
 //
@@ -32,19 +32,19 @@ final class ActivityListViewController: UIViewController {
     func fetchActivities() {
         dataController.fetchActivities { [weak self] (activities, error) in
             guard error == nil else {
-                self?.loadingLabel.text = NSLocalizedString("Something went wrong", comment: "oops")
-                self?.activityIndicator.stopAnimating()
+//                self?.loadingLabel.text = NSLocalizedString("Something went wrong", comment: "oops")
+               // self?.activityIndicator.stopAnimating()
 
                 return
             }
 
             self?.dataSource = activities
-            self?.tableView.reloadData()
-            self?.tableView.isHidden = false
+            //self?.tableView.reloadData()
+            //self?.tableView.isHidden = false
         }
     }
 
-    private var dataSource = [ActivityModel]()
+    var dataSource = [ActivityModel]()
 
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
